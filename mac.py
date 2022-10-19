@@ -95,15 +95,8 @@ def check(xx):
         # exe.submit(check,x)
 file="dump.txt"
 dump=ltp.get(file)
-chunks = list(range(0, len(dump)))
-for chunk in chunker(20000, chunks):
-    # stdout.write(chunk[0])
-    with ltp.exe(4000) as exe:#200
-        exe.map(check, chunk)
-        exe.shutdown(wait=True)
-        del exe, chunk
-        stdout.flush()
-del dump, chunks, file
+for x in dump:
+    check(x)
 
 
 

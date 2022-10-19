@@ -1,5 +1,4 @@
 import os
-from concurrent.futures import ThreadPoolExecutor
 from sys import stdout
 
 def get(name):
@@ -28,8 +27,6 @@ def put(name, this):
 def rem(name):
     os.system("rm -rf "+str(name))
 
-def exe(workers):
-    return ThreadPoolExecutor(max_workers=workers)
 def printf(thiz):
     stdout.write("\x1b[K%s\r" % thiz)
 
